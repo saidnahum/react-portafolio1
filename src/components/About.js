@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Award from '../../src/img/award.png';
+import { ThemeContext } from '../context';
 
 export const About = () => {
+
+   const theme = useContext(ThemeContext);
+	const darkMode = theme.state.darkMode;
+
    return (
       <div className="h-screen flex items-center">
          <div className="flex-1 flex items-center justify-center relative h-full">
-            <div className="w-3/5 h-70v rounded-3xl absolute top-14 left-14 bg-gray-900">
-
-            </div>
+            <div className={`w-3/5 h-70v rounded-3xl absolute top-14 left-14 ${darkMode ? 'bg-custom-green' : 'bg-gray-900'}`}></div>
 
             <div className="w-3/5 h-70v rounded-3xl relative overflow-hidden">
                <img

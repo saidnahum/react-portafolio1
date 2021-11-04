@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './intro.css';
 import Me from '../../src/img/me3.png';
+import { ThemeContext } from '../context';
 
 export const Intro = () => {
+
+   const theme = useContext(ThemeContext);
+	const darkMode = theme.state.darkMode;
+
    return (
-      <div className='flex h-screen'>
-         <div className='flex-1 flex items-center justify-center'>
+      <div className='flex flex-col sm:flex-row h-screen'>
+         <div className='flex flex-1 items-center justify-center'>
             <div className='p-14 h-2/5 flex flex-col justify-between'>
                <h2 className='text-3xl'>Hello, My name is</h2>
                <h1 className='text-6xl font-bold'>Jessica Burton</h1>
@@ -29,7 +34,7 @@ export const Intro = () => {
                height="75"
                viewBox="0 0 75 75"
                fill="none"
-               stroke="black"
+               stroke={`${darkMode ? 'white' : 'black'}`}
                className="i-scroll w-10 h-10 absolute bottom-5"
                xmlns="http://www.w3.org/2000/svg"
             >
